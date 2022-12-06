@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Data Peminjaman</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <!-- <ion-nav [root]="component">Kembali</ion-nav> -->
+    <ion-toolbar>
+      <ion-title size="large">
+        Data Peminjaman
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list lines="full">
+    <ion-item (click)="logout()">
+      <ion-icon slot="start" ios="exit-outline" md="exit-sharp"></ion-icon>
+      <ion-label>Logout</ion-label>
+    </ion-item>
+    <ion-button type="button" [routerLink]="['/peminjaman-tambah']" routerLinkActive="router-link-active" color="success" expand="block">Tambah Peminjaman</ion-button>
+  </ion-list>
+  
+  <ion-list>
+    <ion-list-header>List Data Peminjaman</ion-list-header>
+  </ion-list>
+
+  <ion-card>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>Kode Peminjaman</ion-col>
+          <ion-col>Nama</ion-col>
+          <ion-col>NIM</ion-col>
+          <ion-col>Lembaga</ion-col>
+          <ion-col>Jenis</ion-col>
+          <ion-item>
+            <ion-button [disabled]="true" color="primary" slot="end">Edit</ion-button>
+            <ion-button [disabled]="true" color="danger" slot="end">Hapus</ion-button>
+          </ion-item>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-card>
+
+  <ion-card lines="inset" *ngFor="let peminjaman_value of peminjaman">
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>{{ peminjaman_value.kode_peminjaman }}</ion-col>
+          <ion-col>{{ peminjaman_value.nama }}</ion-col>
+          <ion-col>{{ peminjaman_value.nim }}</ion-col>
+          <ion-col>{{ peminjaman_value.nama_lembaga }}</ion-col>
+          <ion-col>{{ peminjaman_value.jenis_peminjaman }}</ion-col>
+          <ion-item>
+            <ion-button color="primary" slot="end" [routerLink]="['/peminjaman-edit', peminjaman_value.kode_peminjaman]" routerLinkActive="router-link-active">Edit</ion-button>
+            <ion-button color="danger" slot="end" (click)="deletePeminjaman(peminjaman_value.kode_peminjaman)">Hapus</ion-button>
+          </ion-item>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-card>
+  </ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Peminjaman</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Edit Peminjaman</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label position="floating">Kode Peminjaman</ion-label>
+      <ion-input required [(ngModel)]="kode_peminjaman" placeholder="Kode Peminjaman" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nama</ion-label>
+      <ion-input required [(ngModel)]="nama" placeholder="Nama Mahasiswa" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">NIM</ion-label>
+      <ion-input required [(ngModel)]="nim" placeholder="NIM Mahasiswa" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nama Lembaga</ion-label>
+      <ion-input required [(ngModel)]="nama_lembaga" placeholder="Nama Lembaga" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Jenis Peminjaman</ion-label>
+      <ion-input required [(ngModel)]="jenis_peminjaman" placeholder="Jenis Peminjaman" type="text"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" (click)="editPeminjaman()" color="primary" shape="full" expand="block">Edit Peminjaman</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>
